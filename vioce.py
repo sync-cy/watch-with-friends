@@ -1,5 +1,5 @@
-from vidstream import AudioSender
-from vidstream import AudioReceiver
+from audioNL import AudioSender
+from audioNL import AudioReceiver
 
 import threading
 
