@@ -8,11 +8,12 @@ n = input("choose a nickname:")
 
 host = '192.168.1.6'  # localhost
 port = 55555
-
+class inuse:
+    use=False
 c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 c.connect((host, port))
 
-
+using=inuse()
 def re():
     while True:
         # try:
@@ -20,7 +21,7 @@ def re():
         if m == 'nick':
             c.send(n.encode('ascii'))
         else:
-            execuite(m)
+            execuite(m ,using)
         # except:
         #     print('error')
         #     c.close()
@@ -40,6 +41,8 @@ wt = threading.Thread(target=write)
 
 
 def on_press(key):
+    if  using.use:
+        return
     unmodified_key = Keyboard_listner.canonical(key)
     c.send(f'{find_Key_to_send(unmodified_key ,key)}_=P\n'.encode('ascii'))
 
@@ -56,6 +59,8 @@ def find_Key_to_send(unmodified_key, key):
 
 
 def on_release(key):
+    if  using.use:
+        return
     unmodified_key = Keyboard_listner.canonical(key)
     c.send(f'{find_Key_to_send(unmodified_key ,key)}_=R\n'.encode('ascii'))
 

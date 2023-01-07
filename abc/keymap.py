@@ -1,4 +1,5 @@
 from pynput.keyboard import Key,Controller
+import string
 special_keymap = {
     "Key.enter" : Key.enter ,
     "Key.esc" : Key.esc ,
@@ -41,16 +42,30 @@ special_keymap = {
     "Key.f11":Key.f11,
     "Key.f12":Key.f12,
 }
+
+special_keylist=special_keymap.keys()
 keyboardContoller= Controller()
-def execuite(recKey:str):
-    if recKey=="connected" or recKey.startswith('nickname'):
+def execuite(recKey:str,using):
+    if recKey=="connected" or recKey.startswith('nickname') or recKey.endswith('left'):
         print(recKey)
         return
     lines=recKey.splitlines()
-    print(lines)
+  
     if(len(lines)<1):
         for line in lines:
-            execuite(line)
+            execuite(line,using)
     else:
         key,op= lines[0].split('_=')
         print(f'[{key}, {op}]')
+        using.use=True
+        if key in special_keylist:
+            if op=='P':
+                keyboardContoller.press(special_keymap.get(key))
+            if op=='R':
+                keyboardContoller.release(special_keymap.get(key))
+        if key[1] in string.printable:
+            if op=='P':
+                keyboardContoller.press(key[1])
+            if op=='R':
+                keyboardContoller.release(key[1])
+        using.use=False
