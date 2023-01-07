@@ -41,6 +41,7 @@ wt = threading.Thread(target=write)
 
 
 def on_press(key):
+    print(using.use)
     if  using.use:
         return
     unmodified_key = Keyboard_listner.canonical(key)
