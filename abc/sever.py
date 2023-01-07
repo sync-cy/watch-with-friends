@@ -11,9 +11,11 @@ clients = []
 nn = []
 
 
-def bc(message):
+def bc(message,from_client):
     print(message)
     for client in clients:
+        if client==from_client:
+            continue
         client.send(message)
 
 
@@ -21,13 +23,13 @@ def handle(client):
     while True:
         try:
             message = client.recv(1024)
-            bc(message)
+            bc(message,client)
         except:
             index = clients.index(client)
             clients.remove(client)
             client.close()
             n = nn[index]
-            bc(f'{n} left'.encode('ascii'))
+            bc(f'{n} left'.encode('ascii'),client)
             nn.remove(n)
             break
 
@@ -41,7 +43,7 @@ def r():
         nn.append(n)
         clients.append(c)
         print(f'nickname of the client is{n}!')
-        bc(f'nickname of the client is{n}!'.encode('ascii'))
+        bc(f'nickname of the client is{n}!'.encode('ascii'),c)
         c.send(f'connected'.encode('ascii'))
         thread = threading.Thread(target=handle,args=[c])
 

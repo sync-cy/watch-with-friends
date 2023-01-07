@@ -28,5 +28,17 @@ special_keymap = {
     "Key.shift_r" : Key.shift_r ,
     "Key.ctrl_l" : Key.ctrl_l ,
     "Key.ctrl_r" : Key.ctrl_r ,
+    "Key.f1":Key.f1,
+    "Key.f2":Key.f2,
+    "Key.f3":Key.f3,
+    "Key.f4":Key.f4,
+    "Key.f5":Key.f5,
+    "Key.f6":Key.f6,
+    "Key.f7":Key.f7,
+    "Key.f8":Key.f8,
+    "Key.f9":Key.f9,
+    "Key.f10":Key.f10,
+    "Key.f11":Key.f11,
+    "Key.f12":Key.f12,
 }
 Controller().tap()

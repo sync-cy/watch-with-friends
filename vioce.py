@@ -7,11 +7,11 @@ import socket
 
 #io socket.gethostbyname (socketurethes the
 
-receiver = AudioReceiver ("192.168.235.242", 5555)
+receiver = AudioReceiver ("localhost", 9999)
 
 receive_thread =threading. Thread(target=receiver.start_server)
 
-sender= AudioSender("192.168.235.235", 9999)
+sender= AudioSender("136.185.197.149", 9999)
 
 sender_thread=threading.Thread(target=sender.start_stream)
 
