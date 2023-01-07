@@ -34,7 +34,7 @@ wt=threading.Thread(target=write)
 # wt.start()
 def on_press(key):
     unmodified_key= Keyboard_listner.canonical(key)
-    c.send(f'{find_Key_to_send(unmodified_key ,key)}_=P     '.encode('ascii'))
+    c.send(f'{find_Key_to_send(unmodified_key ,key)}_=P\n'.encode('ascii'))
    
     
 def find_Key_to_send(unmodified_key,key):
@@ -45,7 +45,7 @@ def find_Key_to_send(unmodified_key,key):
 
 def on_release(key):
     unmodified_key= Keyboard_listner.canonical(key)
-    c.send(f'{find_Key_to_send(unmodified_key ,key)}_=R     '.encode('ascii'))
+    c.send(f'{find_Key_to_send(unmodified_key ,key)}_=R\n'.encode('ascii'))
 
 
 Keyboard_listner=Listener(on_press=on_press,on_release=on_release)
