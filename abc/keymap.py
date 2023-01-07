@@ -43,14 +43,14 @@ special_keymap = {
 }
 keyboardContoller= Controller()
 def execuite(recKey:str):
-    if recKey==connected:
+    if recKey=="connected" or recKey.startswith('nickname'):
         print(recKey)
         return
     lines=recKey.splitlines()
     print(lines)
     if(len(lines)<1):
         for line in lines:
-            execuite(l)
+            execuite(line)
     else:
-        op,key= lines[1].split('_=')
+        key,op= lines[0].split('_=')
         print(f'[{key}, {op}]')
