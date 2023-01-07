@@ -41,4 +41,16 @@ special_keymap = {
     "Key.f11":Key.f11,
     "Key.f12":Key.f12,
 }
-Controller().tap()
+keyboardContoller= Controller()
+def execuite(recKey:str):
+    if recKey==connected:
+        print(recKey)
+        return
+    lines=recKey.splitlines()
+    print(lines)
+    if(len(lines)<1):
+        for line in lines:
+            execuite(l)
+    else:
+        op,key= lines[1].split('_=')
+        print(f'[{key}, {op}]')

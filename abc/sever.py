@@ -1,7 +1,7 @@
 import threading
 import socket
 
-host = '127.0.0.1'  # localhost
+host = '192.168.1.6'  # localhost
 port = 55555
 
 sever = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -51,4 +51,8 @@ def r():
 
 
 print('server is listening')
-r()
+try:
+    r()
+    
+except KeyboardInterrupt:
+    exit()

