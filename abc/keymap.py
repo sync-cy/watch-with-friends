@@ -60,9 +60,9 @@ def execuite(recKey:str,using):
         using.use=True
         if key in special_keylist:
             if op=='P':
-                keyboardContoller.press(special_keymap.get(key))
+                keyboardContoller.press(special_keymap[key])
             if op=='R':
-                keyboardContoller.release(special_keymap.get(key))  
+                keyboardContoller.release(special_keymap[key])  
         if key[1] in string.printable:
             if op=='P':
                 keyboardContoller.press(key[1])

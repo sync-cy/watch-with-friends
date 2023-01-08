@@ -31,12 +31,12 @@ def execuite(recKey:str):
                 keyboardContoller.press(special_keymap.get(key))
             if op=='R':
                 keyboardContoller.release(special_keymap.get(key))  
-        if key[1] in string.printable:
+        elif key[1] in string.printable:
             if op=='P':
                 keyboardContoller.press(key[1])
             if op=='R':
                 keyboardContoller.release(key[1])
-        time.sleep(.01)
+        time.sleep(.005)
         # Keyboard_listner.start()
         using=False
 
