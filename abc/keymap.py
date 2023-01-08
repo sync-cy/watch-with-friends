@@ -45,27 +45,3 @@ special_keymap = {
 
 special_keylist=special_keymap.keys()
 keyboardContoller= Controller()
-def execuite(recKey:str,using):
-    if recKey=="connected" or recKey.startswith('nickname') or recKey.endswith('left'):
-        print(recKey)
-        return
-    lines=recKey.splitlines()
-  
-    if(len(lines)<1):
-        for line in lines:
-            execuite(line,using)
-    else:
-        key,op= lines[0].split('_=')
-        print(f'[{key}, {op}]')
-        using.use=True
-        if key in special_keylist:
-            if op=='P':
-                keyboardContoller.press(special_keymap[key])
-            if op=='R':
-                keyboardContoller.release(special_keymap[key])  
-        if key[1] in string.printable:
-            if op=='P':
-                keyboardContoller.press(key[1])
-            if op=='R':
-                keyboardContoller.release(key[1])
-        using.use=False
