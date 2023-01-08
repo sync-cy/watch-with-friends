@@ -2,7 +2,7 @@ import threading
 import socket
 
 host = '127.0.0.1'  # localhost
-port = 55555
+port = 4444
 
 sever = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sever.bind((host, port))
@@ -51,4 +51,8 @@ def r():
 
 
 print('server is listening')
-r()
+try:
+    r()
+    
+except KeyboardInterrupt:
+    exit()

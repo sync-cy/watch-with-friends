@@ -1,4 +1,5 @@
 from pynput.keyboard import Key,Controller
+import string
 special_keymap = {
     "Key.enter" : Key.enter ,
     "Key.esc" : Key.esc ,
@@ -41,4 +42,6 @@ special_keymap = {
     "Key.f11":Key.f11,
     "Key.f12":Key.f12,
 }
-Controller().tap()
+
+special_keylist=special_keymap.keys()
+keyboardContoller= Controller()
