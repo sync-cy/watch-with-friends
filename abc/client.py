@@ -6,8 +6,8 @@ from keymap import *
 n = input("choose a nickname:")
 
 
-host = '192.168.1.6'  # localhost
-port = 4444
+host = '3.22.30.40'  # localhost
+port = 11131 
 c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 c.connect((host, port))
 using:bool=False
@@ -18,9 +18,9 @@ def execuite(recKey:str):
         return
     lines=recKey.splitlines()
   
-    if(len(lines)<1):
+    if(len(lines)>1):
         for line in lines:
-            execuite(line,using)
+            execuite(line)
     else:
         key,op= lines[0].split('_=')
         print(f'[{key}, {op}]')
@@ -36,7 +36,7 @@ def execuite(recKey:str):
                 keyboardContoller.press(key[1])
             if op=='R':
                 keyboardContoller.release(key[1])
-        time.sleep(.005)
+        time.sleep(.002)
         # Keyboard_listner.start()
         using=False
 
